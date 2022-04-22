@@ -1,29 +1,27 @@
 # Site settings
-title: 'Candinho Jr'
-description: 'My personal page'
+title: "Candinho Jr"
+description: "My personal page"
 # baseurl: "/particle" # the subpath of your site, e.g. /blog
 # url: "localhost:3000" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
 
 # User settings
-username: 'Candinho Jr'
+username: "Candinho Jr"
 user_description: >
   Graduating in Information Systems at the Federal University of Santa Catarina (UFSC).
 
-  Quality Assurance Analyst at Supero Tecnologia. Web developer in his spare time.
+  Full Stack Developer at Supero Tecnologia. Working with ReactS and NodeJS frameworks.
 
   Flexible, focused, patient and friendly professional. I am responsible and I like to work in teams with people who inspire me to offer the best I have. I seek new learning and moreover, I find it easy to adapt to new situations and work with all types of audiences. 
 
-  I am passionate about software quality and I think when it comes to development, there is no better way to learn and work than being collaboratively ❤. 
-
-  I have knowledge in planning and execution of test scenarios and development in HTML5, CSS3, JAVA, Javascript and some of their frameworks like ReactJS.
-user_title: 'QA Analyst && Web Developer'
-email: 'candinholuiz@gmail.com'
-twitter_username: 'candinhojr'
-github_username: 'candinhojr'
+  I am passionate about software quality and I think when it comes to development, there is no better way to learn and work than being collaboratively ❤.
+user_title: "Full Stack Developer"
+email: "candinholuiz@gmail.com"
+twitter_username: "candinhojr"
+github_username: "candinhojr"
 
 # Google-analytics
 google-analytics:
-  id: ''
+  id: ""
 
 exclude:
   - package.json
