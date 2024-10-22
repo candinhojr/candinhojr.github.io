@@ -1,4 +1,0 @@
-[submodule "ethics-canvas"]
-	path = ethics-canvas
-	url = https://github.com/candinhojr/ethics-canvas-generator.git
-	branch = ethics-canvas
