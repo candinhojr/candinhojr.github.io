@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ethics-canvas/precache-manifest.f3ed7e344514f71270e7f3c5c233dc00.js"
+  "/ethics-canvas/precache-manifest.fbf1f59aced81607cab8fdb54cbb96d5.js"
 );
 
 self.addEventListener('message', (event) => {
