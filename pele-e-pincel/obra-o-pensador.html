@@ -60,7 +60,7 @@
         <section class="detail-gallery">
             
             <div class="detail-item">
-                <img src="assets/img/o_pensador_000.jpg" alt="Still frame do vídeo O Pensador" loading="lazy">
+                <img src="assets/img/o_pensador_000.jpg" alt="Still frame do vídeo O Pensador" loading="lazy" class="lightbox-media">
                 <p>Still do Vídeo Digital (Vista em Contexto).</p>
             </div>
 
@@ -79,6 +79,15 @@
         </section>
         
     </main>
+
+    <div id="lightbox" class="lightbox">
+        <span id="close-btn" class="close-btn">&times;</span>
+        <a class="prev-btn">&#10094;</a>
+        <a class="next-btn">&#10095;</a>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Obra em detalhe" />
+        </div>
+    </div>
     
     <script src="assets/js/script.js"></script>
 </body>
