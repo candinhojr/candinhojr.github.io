@@ -1,0 +1,580 @@
+/* ======================================================= */
+/* 1. RESET BÁSICO E CONFIGURAÇÕES GERAIS                  */
+/* ======================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Cores Elegantes: Preto, Branco, Cinza Sofisticado */
+    --cor-fundo: #FFFFFF;
+    --cor-texto: #1a1a1a;
+    --cor-acento: #8c8c8c; /* Cinza para hover e linhas sutis */
+
+    /* Fontes: Definidas no HTML, mas referenciadas aqui */
+    --fonte-serifada: 'Playfair Display', serif; /* Títulos (Pele e Pincel) */
+    --fonte-sans-serif: 'Inter', sans-serif; /* Corpo e Navegação */
+}
+
+body {
+    font-family: var(--fonte-sans-serif);
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* ======================================================= */
+/* 2. NAVEGAÇÃO DISCRETA (Header)                          */
+/* ======================================================= */
+
+/* header {
+    position: fixed;
+    width: 100%;
+    z-index: 100; 
+    padding: 20px 40px;
+} */
+
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    padding: 20px 40px;
+    
+    /* === NOVAS LINHAS PARA O FUNDO SEMI-TRANSPARENTE === */
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo branco muito sutil */
+    backdrop-filter: blur(5px); /* Efeito de vidro fosco (requer prefixos para compatibilidade total) */
+    -webkit-backdrop-filter: blur(5px);
+    /* =================================================== */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--fonte-serifada);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--cor-texto);
+    text-decoration: none;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    margin-left: 30px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: var(--cor-acento); 
+}
+
+/* ======================================================= */
+/* 3. HERO SECTION DE IMPACTO (HOME)                       */
+/* ======================================================= */
+
+.hero {
+    position: relative;
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Garante que o vídeo cubra toda a área */
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1; 
+    transform: translate(-50%, -50%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5; 
+    text-align: center;
+    color: white; /* Para contraste com um vídeo escuro */
+    /* Você pode adicionar um 'text-shadow' leve para garantir a leitura */
+}
+
+.hero-content h1 {
+    font-family: var(--fonte-serifada);
+    font-size: 4rem; 
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 30px;
+    border: 1px solid white;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: white;
+    color: var(--cor-texto);
+}
+
+/* ======================================================= */
+/* 4. ESTILOS DA GALERIA (Grid Elegante e Lazy Loading)    */
+/* ======================================================= */
+
+.gallery-page {
+    padding-top: 100px;
+    max-width: 1400px; 
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+
+.page-title {
+    font-family: var(--fonte-serifada);
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 40px 0;
+    margin-bottom: 20px;
+}
+
+.gallery-grid {
+    display: grid;
+    /* 3 colunas em telas grandes, se houver espaço (minmax de 300px) */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 40px; 
+    padding: 0 40px;
+}
+
+.gallery-item {
+    /* Mantém os estilos existentes de grade */
+    display: block; 
+    position: relative;
+    /* TRUQUE: Define uma proporção 1:1 (quadrada) para o link */
+    padding-bottom: 100%; 
+    height: 0;
+    overflow: hidden; /* Esconde qualquer parte da imagem que exceda o quadrado */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Sombra elegante */
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-item img {
+    /* Posiciona a imagem para ocupar o espaço definido pelo padding */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* 🧙‍♀️ O TRUQUE MÁGICO: Força a imagem a COBRIR o container, centralizando e cortando o excesso */
+    object-fit: cover; 
+    object-position: center; /* Garante o centro da imagem visível */
+}
+
+/* Lazy Loading placeholder */
+img:not([src]) {
+    opacity: 0;
+}
+
+.item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); 
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.gallery-item:hover .item-overlay {
+    opacity: 1; 
+}
+
+.item-title {
+    font-family: var(--fonte-serifada);
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+/* Ícone de Play para Vídeos */
+.video-item .media-icon {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+/* ======================================================= */
+/* 5. ESTILOS DA PÁGINA DE DETALHE DA OBRA                 */
+/* ======================================================= */
+
+.obra-detail-page {
+    padding-top: 100px;
+    min-height: 100vh;
+}
+
+.obra-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px;
+    gap: 60px; 
+}
+
+.visual-area {
+    flex: 2; 
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start;
+    overflow: hidden; 
+}
+
+.media-frame {
+    max-width: 600px; 
+    height: auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+}
+
+.obra-imagem {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Ajuste para embeds de vídeo (Vimeo/Youtube) */
+.video-frame {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporção 16:9 - Ajuste se o vídeo for quadrado (100%) */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    box-shadow: none; /* Sem sombra no player de vídeo */
+}
+
+.video-frame iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Área de Informação */
+.info-area {
+    flex: 1; 
+    padding-top: 20px;
+}
+
+.obra-titulo {
+    font-family: var(--fonte-serifada);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.obra-status {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #008000; /* DISPONÍVEL */
+}
+
+.status-vendido {
+    color: #c70000;
+}
+
+.obra-specs {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0;
+    margin-bottom: 25px;
+}
+
+.obra-specs p {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Botão de Inquérito de Venda */
+.cta-inquiry {
+    background-color: var(--cor-texto);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s;
+}
+
+.cta-inquiry:hover:not([disabled]) {
+    background-color: var(--cor-acento);
+}
+
+.cta-inquiry[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ======================================================= */
+/* 6. RESPONSIVIDADE GERAL                                 */
+/* ======================================================= */
+
+@media (max-width: 1024px) {
+    /* Páginas de Detalhe: Empilha visual e info */
+    .obra-container {
+        flex-direction: column; 
+        padding: 20px;
+        gap: 30px;
+    }
+
+    .visual-area {
+        align-items: center;
+        width: 100%;
+    }
+    
+    .media-frame {
+        max-width: 90%; 
+    }
+
+    .info-area {
+        padding-top: 0;
+        text-align: center;
+    }
+    
+    .obra-specs {
+        text-align: left; /* Mantém a especificação mais legível */
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+    
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .menu a {
+        margin-left: 15px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Uma coluna no celular */
+        padding: 0 20px;
+        gap: 30px;
+    }
+}
+
+/* ======================================================= */
+/* 7. DETALHES ADICIONAIS NA PÁGINA DA OBRA                 */
+/* ======================================================= */
+
+.detail-gallery {
+    max-width: 1400px; /* Alinha com a largura máxima do container principal */
+    margin: 60px auto 80px auto; /* Espaçamento generoso */
+    padding: 0 40px;
+    
+    display: grid;
+    /* Duas colunas (metade do container) */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 40px; /* Espaçamento entre os detalhes */
+}
+
+.detail-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.detail-item p {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--cor-acento);
+    margin-top: 10px;
+}
+
+/* RESPONSIVIDADE PARA DETALHES */
+@media (max-width: 768px) {
+    .detail-gallery {
+        grid-template-columns: 1fr; /* Uma única coluna no celular */
+        margin: 40px auto;
+        padding: 0 20px;
+        gap: 30px;
+    }
+}
+
+/* -- ESTILOS PARA TRATAMENTO ESPECÍFICO DE VÍDEO (NO DETAIL) -- */
+
+/* Garante que o elemento de mídia (video/img) dentro do frame seja responsivo */
+.responsive-media {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Garante que o frame do vídeo não tenha aquele padding-bottom de 16:9,
+   mas sim o tamanho de uma imagem de quadro (max-width) */
+.video-frame-container {
+    /* REMOVA AS REGRAS: padding-bottom: 56.25%; e height: 0; 
+       DEIXE APENAS: */
+    position: relative;
+    max-width: 600px; /* Faz o vídeo ter a mesma largura da imagem de quadro! */
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+}
+
+/* Estilo para os vídeos de detalhe (detalhe-item) */
+.video-detail-item .responsive-media {
+    /* Garante que o vídeo preencha o container de detalhe */
+    width: 100%;
+}
+
+/* Garante que a área de visualização não adicione preenchimento extra se o conteúdo for vídeo */
+.visual-area {
+    /* ... (mantenha os estilos existentes: flex: 2; justify-content: center; etc.) */
+    align-items: center; /* Centraliza verticalmente o vídeo na seção */
+}
+
+/* ======================================================= */
+/* 8. ESTILOS DA PÁGINA SOBRE & CONTATO                    */
+/* ======================================================= */
+
+.about-page {
+    padding-top: 100px; /* Espaço para o menu fixo */
+    min-height: 100vh;
+}
+
+.about-container {
+    display: flex;
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 60px 40px; /* Mais padding para respirar */
+    gap: 80px; /* Espaçamento amplo entre as colunas */
+}
+
+/* Coluna 1: Texto (Biografia) */
+.about-text-area {
+    flex: 3; /* Ocupa 60% do espaço */
+}
+
+.page-title {
+    /* Reutilizando o estilo da galeria */
+    text-align: left; 
+    margin-bottom: 40px;
+}
+
+.artist-statement {
+    font-family: var(--fonte-serifada);
+    font-size: 1.5rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    font-style: italic;
+    padding-left: 20px;
+    border-left: 3px solid var(--cor-acento); /* Linha sutil para elegância */
+}
+
+.about-text-area p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    max-width: 700px;
+}
+
+/* Coluna 2: Contato */
+.contact-area {
+    flex: 2; /* Ocupa 40% do espaço */
+    border-left: 1px solid #eee; /* Linha de divisão sutil */
+    padding-left: 50px;
+}
+
+.contact-title {
+    font-family: var(--fonte-serifada);
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+}
+
+.contact-info p, .social-links p {
+    margin-bottom: 10px;
+}
+
+.contact-area a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    border-bottom: 1px solid var(--cor-acento); /* Sublinhado sutil */
+}
+
+.contact-area a:hover {
+    color: var(--cor-acento);
+}
+
+
+/* RESPONSIVIDADE PARA SOBRE & CONTATO */
+@media (max-width: 900px) {
+    .about-container {
+        flex-direction: column; 
+        gap: 40px;
+        padding: 40px 20px;
+    }
+
+    .about-text-area {
+        padding-bottom: 30px; 
+    }
+    
+    .page-title {
+        text-align: center;
+    }
+    
+    .artist-statement {
+        padding-left: 0;
+        border-left: none;
+        text-align: center;
+        font-size: 1.3rem;
+    }
+
+    .contact-area {
+        padding-left: 0;
+        border-left: none;
+    }
+    
+    .contact-title {
+        text-align: center;
+    }
+    
+    .contact-info, .social-links {
+        text-align: center; /* Centraliza informações de contato no mobile */
+    }
+}
