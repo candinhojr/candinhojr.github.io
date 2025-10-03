@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css"> 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">]<link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="assets/img/favicon.png" type="image/png" sizes="32x32">
 </head>
 <body>
@@ -29,7 +30,7 @@
                         src="assets/img/liberdade_001.jpg" 
                         alt="Obra Liberdade, visualização completa"
                         loading="lazy"
-                        class="obra-imagem">
+                        class="obra-imagem lightbox-media">
                 </div>
             </section>
             
@@ -53,17 +54,28 @@
         
         <section class="detail-gallery">
             <div class="detail-item">
-                <img src="assets/img/liberdade_002.jpg" alt="Detalhe de perto da pintura Liberdade" loading="lazy">
+                <img src="assets/img/liberdade_002.jpg" alt="Detalhe de perto da pintura Liberdade" loading="lazy" class="lightbox-media">
                 <p>Detalhe da textura.</p>
             </div>
             <div class="detail-item">
-                <img src="assets/img/liberdade_003.jpg" alt="Obra Liberdade em contexto de sala" loading="lazy">
+                <img src="assets/img/liberdade_003.jpg" alt="Obra Liberdade em contexto de sala" loading="lazy" class="lightbox-media">
                 <p>Vista em contexto.</p>
             </div>
             </section>
         
     </main>
     
+    <div id="lightbox" class="lightbox">
+        <span id="close-btn" class="close-btn">&times;</span>
+        
+        <a class="prev-btn">&#10094;</a>
+        <a class="next-btn">&#10095;</a>
+        
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Obra em detalhe" />
+        </div>
+    </div>
+
     <script src="assets/js/script.js"></script>
 </body>
 </html>
