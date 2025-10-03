@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>O Pensador | Pele e Pincel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/img/favicon.png" type="image/png" sizes="32x32">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Pele e Pincel</a>
+            <div class="menu">
+                <a href="galeria.html">Galeria</a>
+                <a href="sobre.html">Sobre & Contato</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="obra-detail-page">
+        <div class="obra-container">
+            
+            <section class="visual-area">
+                <div class="media-frame video-frame-container">
+                    <video id="video-main" 
+                        poster="assets/img/o_pensador_000.jpg" 
+                        controls 
+                        preload="none" 
+                        class="responsive-media"
+                        autoplay
+                        loop> 
+                        <source src="assets/video/o_pensador_001.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                </div>
+            </section>
+
+            <section class="info-area">
+                <h1 class="obra-titulo">O Pensador (Motion)</h1>
+                <p class="obra-status status-vendido">VENDIDO</p>
+                
+                <div class="obra-specs">
+                    <p><strong>Mídia:</strong> Vídeo Digital, 45 Segundos | <strong>Ano:</strong> 2024</p>
+                    <p><strong>Edição:</strong> Coleção Privada, 1 de 3.</p>
+                    <p class="obra-descricao">
+                        Uma exploração da introspecção através da animação da tinta. Este vídeo foi exibido na [Nome da Exposição]. Embora esta edição esteja vendida, aceitamos encomendas personalizadas.
+                    </p>
+                </div>
+                
+                <button id="inquiry-button" class="cta-inquiry" disabled>
+                    Obra Indisponível (Consultar Próximas)
+                </button>
+            </section>
+        </div>
+        
+        <section class="detail-gallery">
+            
+            <div class="detail-item">
+                <img src="assets/img/o_pensador_000.jpg" alt="Still frame do vídeo O Pensador" loading="lazy">
+                <p>Still do Vídeo Digital (Vista em Contexto).</p>
+            </div>
+
+            <div class="detail-item video-detail-item">
+                 <video id="video-second" 
+                    poster="assets/img/o_pensador_001.jpg" 
+                    controls 
+                    preload="none" 
+                    class="responsive-media"> 
+                    <source src="assets/video/o_pensador_002.mp4" type="video/mp4">
+                    Seu navegador não suporta vídeos HTML5.
+                </video>
+                <p>Vídeo Bônus: Processo Criativo.</p>
+            </div>
+            
+        </section>
+        
+    </main>
+    
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
+    <!-- <main class="obra-detail-page">
+        <div class="obra-container">
+            
+            <section class="visual-area">
+                <div class="media-frame video-frame-container">
+                    <iframe 
+                        src="assets/video/o_pensador_001.mp4" 
+                        title="O Pensador - Vídeo de Arte" 
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </section>
+            
+            <section class="info-area">
+                <h1 class="obra-titulo">O Pensador (Motion)</h1>
+                <p class="obra-status status-vendido">VENDIDO</p>
+                
+                <div class="obra-specs">
+                    <p><strong>Mídia:</strong> Vídeo Digital, 45 Segundos | <strong>Ano:</strong> 2024</p>
+                    <p><strong>Edição:</strong> Coleção Privada, 1 de 3.</p>
+                    <p class="obra-descricao">
+                        Uma exploração da introspecção através da animação da tinta. Este vídeo foi exibido na [Nome da Exposição]. Embora esta edição esteja vendida, aceitamos encomendas personalizadas.
+                    </p>
+                </div>
+                
+                <button id="inquiry-button" class="cta-inquiry" disabled>
+                    Obra Indisponível (Consultar Próximas)
+                </button>
+            </section>
+        </div>
+        
+        <section class="detail-gallery">
+            <div class="detail-item">
+                <img src="assets/img/o_pensador_001.jpg" alt="Still frame do vídeo O Pensador" loading="lazy">
+                <p>Still do Vídeo Digital.</p>
+            </div>
+        </section>
+        
+    </main>
+    
+    <script src="assets/js/script.js"></script>
+</body>
+</html> -->
