@@ -253,6 +253,9 @@ img:not([src]) {
     justify-content: center; 
     align-items: flex-start;
     overflow: hidden; 
+    /* NOVO: Limita a altura em telas grandes para evitar que o vídeo estique demais */
+    /* A altura máxima será de 70% da altura da tela (viewport height) */
+    /* max-height: 100vh;  */
 }
 
 .media-frame {
@@ -459,6 +462,9 @@ img:not([src]) {
     width: 100%;
     height: auto;
     display: block;
+    /* Garante que o vídeo não saia dos limites do contêiner */
+    /* max-height: 100%; 
+    object-fit: contain;  */
 }
 
 /* Garante que o frame do vídeo não tenha aquele padding-bottom de 16:9,
@@ -471,6 +477,8 @@ img:not([src]) {
     width: 100%;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    /* NOVO: Garante que o contêiner não exceda o limite da área visual */
+    /* max-height: 100%; */
 }
 
 /* Estilo para os vídeos de detalhe (detalhe-item) */
